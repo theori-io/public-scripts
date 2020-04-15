@@ -26,11 +26,11 @@ def parse_bounds(bounds):
     bound_list = []
     for bound in bounds:
         try:
-            if '0.0.0.0' in str(bound['IpRanges']):
+            if '\'0.0.0.0' in str(bound['IpRanges']):
                 _ = (bound['FromPort'], bound['ToPort'], bound['IpRanges'][0]['CidrIp'])
                 bound_list.append(_)
         except KeyError:
-            if '0.0.0.0' in str(bound['IpRanges']):
+            if '\'0.0.0.0' in str(bound['IpRanges']):
                 bound_list.append(bound)
 
     return bound_list
